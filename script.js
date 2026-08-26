@@ -1,5 +1,5 @@
 /* =====================================================
-   PORTFOLIO JAVASCRIPT
+   ABHIJEET TIWARI PORTFOLIO JAVASCRIPT
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       HEADER SCROLL
+       HEADER SCROLL EFFECT
     ================================================= */
 
     function handleHeaderScroll() {
@@ -35,25 +35,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("scroll", handleHeaderScroll);
+
     handleHeaderScroll();
 
 
     /* =================================================
-       MOBILE MENU
+       MOBILE NAVIGATION
     ================================================= */
 
     if (menuToggle && navMenu) {
 
         menuToggle.addEventListener("click", () => {
 
-            const isOpen = navMenu.classList.toggle("open");
+            const isOpen =
+                navMenu.classList.toggle("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
                 String(isOpen)
             );
 
-            const icon = menuToggle.querySelector("i");
+            const icon =
+                menuToggle.querySelector("i");
 
             if (icon) {
 
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        /* Close menu when clicking nav link */
+        /* Close menu after clicking navigation link */
 
         document.querySelectorAll(".nav-link").forEach(link => {
 
@@ -85,11 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     "false"
                 );
 
-                const icon = menuToggle.querySelector("i");
+                const icon =
+                    menuToggle.querySelector("i");
 
                 if (icon) {
 
                     icon.classList.remove("fa-xmark");
+
                     icon.classList.add("fa-bars");
 
                 }
@@ -105,7 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
        THEME TOGGLE
     ================================================= */
 
-    const savedTheme = localStorage.getItem("portfolio-theme");
+    const savedTheme =
+        localStorage.getItem("portfolio-theme");
+
 
     if (savedTheme === "light") {
 
@@ -121,7 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!themeToggle) return;
 
-        const icon = themeToggle.querySelector("i");
+        const icon =
+            themeToggle.querySelector("i");
 
         if (!icon) return;
 
@@ -129,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.documentElement.getAttribute(
                 "data-theme"
             ) === "light";
+
 
         icon.classList.toggle(
             "fa-sun",
@@ -142,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     updateThemeIcon();
 
 
@@ -153,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.documentElement.getAttribute(
                     "data-theme"
                 ) === "light";
+
 
             if (isLight) {
 
@@ -179,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
+
             updateThemeIcon();
 
         });
@@ -193,19 +205,36 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typingText) {
 
         const words = [
-            "Web Developer",
-            "Software Developer",
-            "Frontend Developer",
-            "CAD Designer"
+
+            "Electrical Panel Board Design",
+
+            "Mechanical Design Engineer",
+
+            "Panel Enclosure Design",
+
+            "Engineering Drawings",
+
+            "Manufacturing Support",
+
+            "Software Engineering"
+
         ];
 
+
         let wordIndex = 0;
+
         let charIndex = 0;
+
         let deleting = false;
+
 
         function typeEffect() {
 
-            const currentWord = words[wordIndex];
+            const currentWord =
+                words[wordIndex];
+
+
+            /* Typing */
 
             if (!deleting) {
 
@@ -215,21 +244,34 @@ document.addEventListener("DOMContentLoaded", () => {
                         charIndex + 1
                     );
 
+
                 charIndex++;
 
-                if (charIndex === currentWord.length) {
+
+                /* Finished typing */
+
+                if (
+                    charIndex ===
+                    currentWord.length
+                ) {
 
                     deleting = true;
 
                     setTimeout(
                         typeEffect,
-                        1600
+                        1700
                     );
 
                     return;
+
                 }
 
-            } else {
+            }
+
+
+            /* Deleting */
+
+            else {
 
                 typingText.textContent =
                     currentWord.substring(
@@ -237,25 +279,33 @@ document.addEventListener("DOMContentLoaded", () => {
                         charIndex - 1
                     );
 
+
                 charIndex--;
+
+
+                /* Finished deleting */
 
                 if (charIndex === 0) {
 
                     deleting = false;
 
+
                     wordIndex =
-                        (wordIndex + 1) % words.length;
+                        (wordIndex + 1) %
+                        words.length;
 
                 }
 
             }
 
+
             setTimeout(
                 typeEffect,
-                deleting ? 55 : 90
+                deleting ? 45 : 85
             );
 
         }
+
 
         typeEffect();
 
@@ -263,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       SCROLL REVEAL
+       SCROLL REVEAL ANIMATION
     ================================================= */
 
     const revealElements =
@@ -278,11 +328,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
                             entry.target.classList.add(
                                 "active"
                             );
+
 
                             observer.unobserve(
                                 entry.target
@@ -325,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "section[id]"
         );
 
+
     const navLinks =
         document.querySelectorAll(
             ".nav-link"
@@ -335,15 +389,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let currentSection = "home";
 
+
         sections.forEach(section => {
 
             const sectionTop =
-                section.offsetTop - 150;
+                section.offsetTop - 180;
 
-            if (window.scrollY >= sectionTop) {
+
+            if (
+                window.scrollY >=
+                sectionTop
+            ) {
 
                 currentSection =
-                    section.getAttribute("id");
+                    section.getAttribute(
+                        "id"
+                    );
 
             }
 
@@ -354,10 +415,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             link.classList.remove("active");
 
+
             const href =
                 link.getAttribute("href");
 
-            if (href === `#${currentSection}`) {
+
+            if (
+                href ===
+                `#${currentSection}`
+            ) {
 
                 link.classList.add("active");
 
@@ -372,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "scroll",
         updateActiveNav
     );
+
 
     updateActiveNav();
 
@@ -388,26 +455,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 event.preventDefault();
 
+
                 const name =
                     document.getElementById(
                         "name"
                     )?.value.trim();
+
 
                 const email =
                     document.getElementById(
                         "email"
                     )?.value.trim();
 
+
                 const subject =
                     document.getElementById(
                         "subject"
                     )?.value.trim();
+
 
                 const message =
                     document.getElementById(
                         "message"
                     )?.value.trim();
 
+
+                /* Validation */
 
                 if (
                     !name ||
@@ -431,10 +504,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
+                /* Email subject */
+
                 const emailSubject =
                     encodeURIComponent(
                         subject
                     );
+
+
+                /* Email body */
 
                 const emailBody =
                     encodeURIComponent(
@@ -444,9 +522,14 @@ Name: ${name}
 Email: ${email}
 
 Message:
-${message}`
+${message}
+
+Regards,
+${name}`
                     );
 
+
+                /* Mailto URL */
 
                 const mailto =
                     `mailto:abhijeettiwari955@gmail.com?subject=${emailSubject}&body=${emailBody}`;
@@ -463,7 +546,8 @@ ${message}`
                 }
 
 
-                window.location.href = mailto;
+                window.location.href =
+                    mailto;
 
             }
         );
@@ -496,13 +580,18 @@ ${message}`
             event => {
 
                 const targetId =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
+
 
                 if (
                     !targetId ||
                     targetId === "#"
                 ) {
+
                     return;
+
                 }
 
 
@@ -511,17 +600,22 @@ ${message}`
                         targetId
                     );
 
+
                 if (!target) {
+
                     return;
+
                 }
 
 
                 event.preventDefault();
 
+
                 target.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
+
 
             }
         );
@@ -530,7 +624,7 @@ ${message}`
 
 
     /* =================================================
-       IMAGE ERROR HANDLING
+       PROFILE IMAGE ERROR HANDLING
     ================================================= */
 
     const profileImage =
@@ -548,25 +642,31 @@ ${message}`
                 profileImage.style.display =
                     "none";
 
+
                 const parent =
                     profileImage.parentElement;
+
 
                 if (parent) {
 
                     parent.style.display =
                         "grid";
 
+
                     parent.style.placeItems =
                         "center";
 
-                    parent.innerHTML =
-                        `<i class="fas fa-user"
+
+                    parent.innerHTML = `
+                        <i
+                            class="fas fa-user"
                             style="
-                            font-size:80px;
-                            color:#00d9ff;
-                            opacity:.7;
+                                font-size:80px;
+                                color:#00d9ff;
+                                opacity:.7;
                             ">
-                        </i>`;
+                        </i>
+                    `;
 
                 }
 
@@ -577,11 +677,189 @@ ${message}`
 
 
     /* =================================================
-       PAGE LOADED
+       ESC KEY - CLOSE MOBILE MENU
     ================================================= */
 
-    document.body.classList.add(
-        "page-ready"
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                navMenu &&
+                navMenu.classList.contains("open")
+            ) {
+
+                navMenu.classList.remove(
+                    "open"
+                );
+
+
+                if (menuToggle) {
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    const icon =
+                        menuToggle.querySelector(
+                            "i"
+                        );
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
     );
+
+
+    /* =================================================
+       CLOSE MOBILE MENU ON RESIZE
+    ================================================= */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 900 &&
+                navMenu
+            ) {
+
+                navMenu.classList.remove(
+                    "open"
+                );
+
+
+                if (menuToggle) {
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    const icon =
+                        menuToggle.querySelector(
+                            "i"
+                        );
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       BUTTON RIPPLE EFFECT
+    ================================================= */
+
+    document.querySelectorAll(
+        ".btn"
+    ).forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function(event) {
+
+                const ripple =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                ripple.classList.add(
+                    "button-ripple"
+                );
+
+
+                const rect =
+                    this.getBoundingClientRect();
+
+
+                const size =
+                    Math.max(
+                        rect.width,
+                        rect.height
+                    );
+
+
+                ripple.style.width =
+                    `${size}px`;
+
+                ripple.style.height =
+                    `${size}px`;
+
+
+                ripple.style.left =
+                    `${event.clientX - rect.left - size / 2}px`;
+
+
+                ripple.style.top =
+                    `${event.clientY - rect.top - size / 2}px`;
+
+
+                this.appendChild(
+                    ripple
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        ripple.remove();
+
+                    },
+                    600
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =================================================
+       PAGE READY
+    ================================================= */
+
+    setTimeout(() => {
+
+        document.body.classList.add(
+            "page-ready"
+        );
+
+    }, 100);
+
 
 });
